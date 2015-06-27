@@ -2,9 +2,11 @@
 <html>
 <head>
   <title>MmuApi</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application'%>
+  <%= javascript_include_tag "webcomponentsjs/webcomponents" unless Rails.env.test? %>
+  <%= html_import_tag "application" %>
+  <%= csrf_meta_tags %>  
 </head>
 <body>
 
