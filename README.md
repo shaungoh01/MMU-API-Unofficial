@@ -1,4 +1,4 @@
-# MMU-API-Unofficial
+# MMU Hub
 Endpoints for MMU sites through web scraping
 
 ### Endpoints
