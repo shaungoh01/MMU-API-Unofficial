@@ -9,10 +9,13 @@
   <%= csrf_meta_tags %>  
 </head>
 <body>
+  <platinum-sw-register>
+  <platinum-sw-cache>
 
 <%= render "layouts/header" %>
 <%=yield %>
 <%= render "layouts/footer" %>
-
+</platinum-sw-cache>
+</platinum-sw-register>
 </body>
 </html>

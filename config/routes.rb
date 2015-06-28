@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'api' => 'static_pages#api'
 
+  get 'mmls' => 'static_pages#mmls'
+  post 'mmls' => 'static_pages#mmls'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

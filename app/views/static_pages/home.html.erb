@@ -1,1 +1,13 @@
 <h1 style="text-align:center;">COMING SOON</h1>
+<%= form_tag mmls_path, method: :post do %>
+    <%=label_tag :Student_Id %>
+    <%=text_field_tag :id%><br />
+
+    <%=label_tag :MMLS_password %>
+    <%=password_field_tag (:mmlsPass)%> <br />
+
+    <%=label_tag :CamSys_password %>
+    <%=password_field_tag (:camsysPass)%><br />
+
+    <div><%= submit_tag 'LogIn' %></div>
+<% end -%>
