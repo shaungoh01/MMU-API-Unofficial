@@ -3,7 +3,7 @@ Endpoints for MMU sites through web scraping
 
 ### Endpoints
 ` /login_camsys_v2 `
-```
+```json
 {
   "subjects_attendance": [
     {
@@ -25,7 +25,7 @@ Endpoints for MMU sites through web scraping
 } 
 ```
 ` /bulletin_api `
-``` 
+```json 
 [  
    {  
       "title":"Recruitment of Fresh IT Graduates by SoftwareONE Experts SDN. BHD.",
@@ -37,7 +37,7 @@ Endpoints for MMU sites through web scraping
 ]
 ```
 ` /login_mmls `
-```
+```json 
 {  
    "message":"Successful Login",
    "profile":{  
@@ -64,7 +64,7 @@ Endpoints for MMU sites through web scraping
 }
 ```
 ` /refresh_subject `
-```
+```json 
 {  
    "id":null,
    "status":null,
