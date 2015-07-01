@@ -1,13 +1,12 @@
 <h1 style="text-align:center;">COMING SOON</h1>
 <%= form_tag mmls_path, method: :post do %>
-    <%=label_tag :Student_Id %>
-    <%=text_field_tag :id%><br />
+<paper-material>
+    <paper-input name="id" id="id" char-counter label="Student ID" auto-validate pattern="[0-9]*" maxlength="10" error-message="Number Only"><%=text_field_tag :id%></paper-input><br />
 
-    <%=label_tag :MMLS_password %>
-    <%=password_field_tag (:mmlsPass)%> <br />
+    <paper-input name="mmlsPass" id="mmlsPass" label="MMLS Password" type="password"><%=password_field_tag :mmlsPass%></paper-input><br />
 
-    <%=label_tag :CamSys_password %>
-    <%=password_field_tag (:camsysPass)%><br />
+    <paper-input name="camsysPass" id="camsysPass" label="Camsys Password" type="password"><%=text_field_tag :camsysPass%></paper-input><br />
 
     <div><%= submit_tag 'LogIn' %></div>
+ </paper-material>
 <% end -%>

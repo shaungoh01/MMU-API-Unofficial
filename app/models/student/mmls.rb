@@ -43,9 +43,11 @@ class Student::Mmls
 
     laravel_cookie = agent.cookie_jar.first.value
     unless page.parser.xpath('//*[@id="alert"]').empty?
-     return :json => {message: "Incorrect MMLS username or password", status: 400}, status:400
+      return {"message"=>"Incorrect MMLS username or password","status"=>400 }
+     #return :json => {message: "Incorrect MMLS username or password", status: 400}, status:400
     else
-      return :json => {message: "Successful Login", profile: details, cookie: laravel_cookie, subjects: subjects, token: token,status: 100}
+      return {"message" => "Successful Login","profile" => details,"cookie" => laravel_cookie,"subjects" => subjects,"token" => token,"status" => 100 }
+      #return :json => {message: "Successful Login", profile: details, cookie: laravel_cookie, subjects: subjects, token: token,status: 100}
     end
   end
 

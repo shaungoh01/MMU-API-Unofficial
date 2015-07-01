@@ -68,31 +68,36 @@ class ApiController < ApplicationController
 
   def attendance
     student = Student::Camsys.new(params[:student_id] ,params[:password])
-    jsonR = student.attendance
-    render jsonR
+    hashR = student.attendance
+    hashR.to_json
+    render :json => JSON.pretty_generate(hashR)
   end
 
   def login_camsys_v2
     student = Student::Camsys.new(params[:student_id] ,params[:camsys_password])
-    jsonR = student.login_camsys_v2
-    render jsonR
+    hashR = student.login_camsys_v2
+    hashR.to_json
+    render :json => JSON.pretty_generate(hashR)
   end
 
   def login_camsys
     student = Student::Camsys.new(params[:student_id] ,params[:camsys_password])
-    jsonR = student.login_camsys
-    render jsonR
+    hashR = student.login_camsys
+    hashR.to_json
+    render :json => JSON.pretty_generate(hashR)
   end
 
   def timetable
-  	student = Student::Camsys.new(params[:student_id] ,params[:password])
-    jsonR = student.timetable
-    render jsonR
+  	student = Student::Camsys.new(params[:student_id] ,params[:camsys_password])
+    hashR = student.timetable
+    hashR.to_json
+    render :json => JSON.pretty_generate(hashR)
   end
   def login_mmls
     student = Student::Mmls.new(params[:student_id] ,params[:mmls_password])
-    jsonR = student.login_mmls
-    render jsonR
+    hashR = student.login_mmls
+    hashR.to_json
+    render :json => JSON.pretty_generate(hashR)
   end
 
   def bulletin

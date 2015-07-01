@@ -36,7 +36,7 @@ class Student::Camsys
 	      subjects_attendance << Hash[attendance_table_fields.zip(subject_row)]
 	      current_row = current_row + 1
 	    end
-	    return :json => JSON.pretty_generate(subjects_attendance.as_json)
+	    return subjects_attendance
  	end
 
  	def login_camsys_v2
@@ -112,9 +112,9 @@ class Student::Camsys
 
 	      agent.get("https://cms.mmu.edu.my/psp/csprd/EMPLOYEE/HRMS/?cmd=logout")
 
-	      return :json=> JSON.pretty_generate(response.as_json)
+	      return response
 	    else
-	      return :json=> {error: "Incorrect CAMSYS username or password", status: 400}, status: 400
+	      return {"error"=> "Incorrect CAMSYS username or password", "status"=> 400}
 	    end
   	end
 
@@ -125,8 +125,8 @@ class Student::Camsys
 	    agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 	    page = agent.get("https://cms.mmu.edu.my/psp/csprd/?&cmd=login&languageCd=ENG")
 	    form = page.form
-	    form.userid = params[:student_id]
-	    form.pwd = params[:camsys_password]
+	    form.userid = @id
+	    form.pwd = @pass
 	    page = agent.submit(form)
 	    if page.parser.xpath('//*[@id="login_error"]').empty?
 	      page = agent.get("https://cms.mmu.edu.my/psc/csprd/EMPLOYEE/HRMS/c/N_SR_STUDENT_RECORDS.N_SR_SS_ATTEND_PCT.GBL?
@@ -151,12 +151,12 @@ class Student::Camsys
 	        current_row = current_row + 1
 	      end
 	      agent.get("https://cms.mmu.edu.my/psp/csprd/EMPLOYEE/HRMS/?cmd=logout")
-	      return :json => JSON.pretty_generate(subjects_attendance.as_json)
+	      return subjects_attendance
 	    else
-	      return :json => {error: "Incorrect CAMSYS username or password", status: 400}, status: 400
+	      return {"error"=> "Incorrect CAMSYS username or password", "status"=> 400}
 	    end
   	end
-  	
+
   	def timetable
 	  	agent = Mechanize.new
 	    agent.keep_alive = true
@@ -207,6 +207,8 @@ class Student::Camsys
 	                                                       :include => {:timeslots => { :except => [:id, :subject_class_id] } },
 	                                                        :except => [:id] } },
 	                                                        :except => [:id, :subject_class_id])
+
+	      
 
 
 	      return :json => JSON.pretty_generate(subjects_json)
