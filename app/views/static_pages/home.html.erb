@@ -1,12 +1,12 @@
-<h1 style="text-align:center;">COMING SOON</h1>
+<h1 style="text-align:center;">Log In</h1>
 <%= form_tag mmls_path, method: :post do %>
-<paper-material>
+<paper-material class="loginPaper">
     <paper-input name="id" id="id" char-counter label="Student ID" auto-validate pattern="[0-9]*" maxlength="10" error-message="Number Only"><%=text_field_tag :id%></paper-input><br />
 
     <paper-input name="mmlsPass" id="mmlsPass" label="MMLS Password" type="password"><%=password_field_tag :mmlsPass%></paper-input><br />
 
     <paper-input name="camsysPass" id="camsysPass" label="Camsys Password" type="password"><%=text_field_tag :camsysPass%></paper-input><br />
 
-    <div><%= submit_tag 'LogIn' %></div>
+    <div><paper-button><%= submit_tag 'LogIn' %></paper-button></div>
  </paper-material>
 <% end -%>
